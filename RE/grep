@@ -1,0 +1,4 @@
+# GREP : Generalised Regular Expressions Parser in UNIX
+#Searches for lines starting with 'From: ':
+#Type in Terminal:
+$ grep '^From: ' sample_short.txt
