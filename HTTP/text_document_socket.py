@@ -6,7 +6,7 @@ mysock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mysock.connect(('data.pr4e.org',80))
 #This part gets the document
 cmd = 'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n' .encode() ## \n\n=\r\n\r\n: the HTTP protocol says we sould send GET command followed by a blank line. \r\n<=> End of line. \r\n\r\n: nothing between 2 end lines<=>blank line
-mysock.send(cmd)                                                      ##Encode: according to HTTP, data can only be sent and received as bytes objects (and not strings). Encode/decode methods convert strings to byte objects.
+mysock.send(cmd)                                                      ##Encode: according to HTTP, data can only be sent and received as bytes objects (and not strings). Encode/decode methods convert strings to byte objects.This is necessary in Python 3 and not in Python 2. In Python 3 string variable are unicode. In Python 2 string variables are already in Bytes.
 ###This part receives data in 512-character chunks from the socket and prints the data out until there is no more data to read
 while True:
     data=mysock.recv(512)
